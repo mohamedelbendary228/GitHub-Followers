@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F0A7344C301B79DF00ECEE63 /* Exceptions for "GHFollowers" folder in "GHFollowers" target */ = {
+		F0EC0B893034CA7800D4BB5C /* Exceptions for "GHFollowers" folder in "GHFollowers" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F0A7343C301B79DE00ECEE63 /* GHFollowers */ = {
+		F0EC0B813034CA7700D4BB5C /* GHFollowers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F0A7344C301B79DF00ECEE63 /* Exceptions for "GHFollowers" folder in "GHFollowers" target */,
+				F0EC0B893034CA7800D4BB5C /* Exceptions for "GHFollowers" folder in "GHFollowers" target */,
 			);
 			path = GHFollowers;
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		F0A73431301B79DE00ECEE63 = {
 			isa = PBXGroup;
 			children = (
-				F0A7343C301B79DE00ECEE63 /* GHFollowers */,
+				F0EC0B813034CA7700D4BB5C /* GHFollowers */,
 				F0A7343B301B79DE00ECEE63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F0A7343C301B79DE00ECEE63 /* GHFollowers */,
+				F0EC0B813034CA7700D4BB5C /* GHFollowers */,
 			);
 			name = GHFollowers;
 			packageProductDependencies = (
