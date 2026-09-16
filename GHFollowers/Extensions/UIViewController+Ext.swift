@@ -18,6 +18,4 @@ extension UIViewController {
         }
     }
     
-    
-    
 }
