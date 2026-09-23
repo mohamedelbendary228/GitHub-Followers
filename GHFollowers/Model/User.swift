@@ -18,5 +18,5 @@ nonisolated struct User: Codable {
     let htmlUrl: String
     let following: Int
     let followers: Int
-    let createdAt: Date
+    let createdAt: String
 }

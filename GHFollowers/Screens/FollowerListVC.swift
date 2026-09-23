@@ -133,7 +133,7 @@ extension FollowerListVC: UICollectionViewDelegate {
         
         let destVC = UserInfoVC()
         destVC.username = follower.login
-        // destVC.delegate = self
+        destVC.delegate = self
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
     }
@@ -153,5 +153,20 @@ extension FollowerListVC: UISearchResultsUpdating {
         isSearching = true
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
+    }
+}
+
+// MARK: - UserInfoVCDelegate
+extension FollowerListVC: UserInfoVCDelegate {
+    
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        title = username
+        page = 1
+        
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        getFollowers(username: username, page: page)
     }
 }

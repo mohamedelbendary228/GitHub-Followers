@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol UserInfoVCDelegate: AnyObject {
     func didRequestFollowers(for username: String)
@@ -79,7 +80,7 @@ class UserInfoVC: UIViewController {
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
         self.add(childVC: GFFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
-        //        self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
     }
     
     func layoutUI() {
@@ -131,12 +132,23 @@ class UserInfoVC: UIViewController {
 
 extension UserInfoVC: GFRepoItemVCDelegate {
     func didTapGitHubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "OK")
+            return
+        }
         
+        presentSafariVC(with: url)
     }
 }
 
 extension UserInfoVC: GFFollowerItemVCDelegate {
     func didTapGetFollowers(for user: User) {
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😔.", buttonTitle: "So sad")
+            return
+        }
         
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
 }
