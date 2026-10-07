@@ -8,22 +8,35 @@
 import UIKit
 
 class GFTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        UITabBar.appearance().tintColor = .systemGreen
+        viewControllers = [createSearchNC(), createFavoritesNC()]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func createSearchNC() -> UINavigationController {
+        let searchVC = SearchVC()
+        searchVC.title = "Search"
+        searchVC.tabBarItem =  UITabBarItem(
+            title: "Search",
+            image: UIImage(systemName: "magnifyingglass"),
+            tag: 0
+        )
+        
+        return UINavigationController(rootViewController: searchVC)
     }
-    */
-
+    
+    func createFavoritesNC() -> UINavigationController {
+        let favoritesListVC = FavoritesListVC()
+        favoritesListVC.title = "Favorite"
+        favoritesListVC.tabBarItem = UITabBarItem(
+            title: "Favorite",
+            image: UIImage(systemName: "star.fill"),
+            tag: 1
+        )
+        
+        return UINavigationController(rootViewController: favoritesListVC)
+    }
+    
 }
